@@ -6,6 +6,8 @@ var estrategy = "";
 
 function calcMetabolism() {
 
+    let btGetValues = document.getElementById("btGetValues");
+
     sessionStorage.setItem('userOn', '1');
 
     age = document.getElementById('age').value;
@@ -17,6 +19,7 @@ function calcMetabolism() {
     
     if ((age && weight && height && estrategy && sex) != "") {
         metabolism = "Seu metabolismo basal é de aproximadamente " + kcal + " kcal";
+        btGetValues.disabled = false;
     } else {
         metabolism = "Insira os dados corretamente!";
     }
@@ -30,9 +33,6 @@ function calcMetabolism() {
 
     event.preventDefault();
     console.log("entrou cálculo");
-
-    let btGetValues = document.getElementById("btGetValues");
-    btGetValues.disabled = false;
 
     console.log("saiu cálculo");
 }

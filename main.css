@@ -108,13 +108,13 @@ input {
 
 select{
     font-size: 1rem;
-    width:148px;
+    width:158px;
     height:21px;
 }
 
 input[type=button]{
     font-size: 1rem;
-    width:135px;
+    width:130px;
     height:25px;
 }
 

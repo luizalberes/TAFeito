@@ -1,0 +1,194 @@
+* {
+    font-family: 'Roboto Mono', monospace;
+}
+
+html, body {
+    color: red;
+    font-size: 100%;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin: 0%;
+    /* O tamanho da fonte raiz é 16px */
+}
+
+p {
+    text-align: center;
+}
+
+
+main {
+    background: url('https://drive.google.com/file/d/1Jgv6HpXNYOdmrkZ6JiD9EOG2pLagWQQU/view?usp=sharing');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.test {
+    text-align: right;
+    /* display: table-cell; */
+    display: inline-block; /* colocar uma div ao lado da outra */
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+}
+
+.simuleTest {
+    text-align: right;
+    /* display: table-cell; */
+    display: inline-block; /* colocar uma div ao lado da outra */
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+}
+
+.lapsData {
+    text-align: right;
+    /* display: table-cell; */
+    display: inline-block; /* colocar uma div ao lado da outra */
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+}
+
+html {
+    font-size: 10px;
+}
+
+h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    background-color: rgb(0,0,0, 50%);
+    margin: 0;
+}
+
+h1 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    background-color: rgb(0,0,0, 50%);
+    margin: 0;
+}
+
+h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    background-color: rgb(0,0,0, 50%);
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+label {
+    font-size: 1rem;
+}
+
+input {
+    font-size: 1rem;
+    width:100px;
+    height:15px;
+}
+
+select{
+    font-size: 1rem;
+    width:108px;
+    height:21px;
+}
+
+input[type=button]{
+    font-size: 1rem;
+    width:130px;
+    height:25px;
+}
+
+input[type=time] {
+    font-size: 1rem;
+    width:103px;
+    height:18px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Parte de baixo do menu */
+    background-color: rgb(0,0,0, 50%);
+    position: -webkit-sticky; /* Safari */
+    position: sticky; /* Deixa o menu preso durante a barra de rolagem */
+    top: 0; /* Indica que o menu ficará preso em cima */
+  }
+  
+li {
+    float: left; /* Ordena cada elemento do li lado a lado */
+}
+
+li a, .dropButton {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+li a:hover, .dropdownCalc:hover .dropButton { /* Cor do fundo quando tiver com o mouse em cima */
+    background-color: rgb(0,0,0, 51%);
+  }
+
+/* Tentando menu suspenso */
+  
+li.dropdownCalc {
+    display: inline-block;
+  }
+  
+.dropdownCalc { /* Botão que estiver ativo */
+    background-color: red;
+}
+
+.dropdownCalc-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdownCalc-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdownCalc-content a:hover {
+    background-color: #f1f1f1;}
+
+.dropdownCalc:hover .dropdownCalc-content {
+    display: block;
+}
+
+
+/* seletor universal tem valor de 0
+seletor de elemento tem força 1
+seletor de classe e atributo tem força 10
+seletor de id selector tem força 100
+inline tem força 1000 */
+
+/* * {
+
+} */

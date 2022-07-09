@@ -1,0 +1,118 @@
+<!DOCTYPE html> <!--!emmet completa todo o básico do html-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Macros</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Dispositivos móveis-->
+        <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+        <script src="js/orderDays.js"></script>
+        <script src="js/organizeDiet.js"></script>
+        <script src="js/getSelectTrashDay.js"></script>
+    </head>
+    <body onload="organizeDiet()"> <!-- w3c school -->
+        <div class="container">
+            <header>
+                <h1> <!-- Título -->
+                    Macronutrientes
+                </h1>
+            </header>
+            <main>
+                <h4> Seus Dados
+                        <p id="age" ></p>
+                        <p id="weight" ></p>
+                        <p id="height" ></p>
+                        <p id="sex"></p>
+                        <p id="estrategy"></p>
+                    </h4>
+                    <form>
+                        <label>Qual dia você vai iniciar a dieta?</label>
+                        <select name="daysList" id="daysList" onchange=orderDays(this.value)>
+                            <option value="day1" selected>Domingo</option>
+                            <option value="day2">Segunda</option>
+                            <option value="day3">Terça</option>
+                            <option value="day4">Quarta</option>
+                            <option value="day5">Quinta</option>
+                            <option value="day6">Sexta</option>
+                            <option value="day7">Sábado</option>
+                        </select> <br><br>
+                        <label>Qual será o dia do lixo?</label>
+                        <select name="trashDay" id="trashDay" onchange="getSelectTrashDay()">
+                            <option value="" selected>Não terá</option>
+                            <option value="trashDay1">Domingo</option>
+                            <option value="trashDay2">Segunda</option>
+                            <option value="trashDay3">Terça</option>
+                            <option value="trashDay4">Quarta</option>
+                            <option value="trashDay5">Quinta</option>
+                            <option value="trashDay6">Sexta</option>
+                            <option value="trashDay7">Sábado</option>
+                        </select> <br><br><br>
+                    </form>
+                    <table>
+                        <caption>
+                            Sugestão de Consumo de Macronutrientes
+                        </caption>
+                        <colgroup>
+                        </colgroup>
+                        <thead> <!--Cabeçalho-->
+                                <tr> <!--Linha-->
+                                    <th>Macros</th> <!--Colunas-->
+                                    <th id="day1">Domingo</th>
+                                    <th id="day2">Segunda</th>
+                                    <th id="day3">Terça</th>
+                                    <th id="day4">Quarta</th>
+                                    <th id="day5">Quinta</th>
+                                    <th id="day6">Sexta</th>
+                                    <th id="day7">Sábado</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                                <tr>
+                                    <th>Carboidratos</th>
+                                    <td id="carb1"></td>
+                                    <td id="carb2"></td>
+                                    <td id="carb3"></td>
+                                    <td id="carb4"></td>
+                                    <td id="carb5"></td>
+                                    <td id="carb6"></td>
+                                    <td id="carb7"></td>
+                                </tr>
+                                <tr>
+                                    <th>Proteína</th>
+                                    <td id="prot1"></td>
+                                    <td id="prot2"></td>
+                                    <td id="prot3"></td>
+                                    <td id="prot4"></td>
+                                    <td id="prot5"></td>
+                                    <td id="prot6"></td>
+                                    <td id="prot7"></td>
+                                </tr>
+                                <tr>
+                                    <th>Gordura</th>
+                                    <td id="fat1"></td>
+                                    <td id="fat2"></td>
+                                    <td id="fat3"></td>
+                                    <td id="fat4"></td>
+                                    <td id="fat5"></td>
+                                    <td id="fat6"></td>
+                                    <td id="fat7"></td>
+                                </tr>
+                        </tbody>
+                        <tfoot>
+                                <tr>
+                                    <th>Calorias</th>
+                                    <td id="kcal1"></td>
+                                    <td id="kcal2"></td>
+                                    <td id="kcal3"></td>
+                                    <td id="kcal4"></td>
+                                    <td id="kcal5"></td>
+                                    <td id="kcal6"></td>
+                                    <td id="kcal7"></td>
+                                </tr>                   
+                        </tfoot>
+                    </table>                                        
+            </main>
+        </div>
+
+    </body>
+</html>

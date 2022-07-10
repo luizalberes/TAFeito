@@ -16,16 +16,11 @@ p {
     text-align: center;
 }
 
-main {
+.container {
     background-image: url("background.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
-
-.container {
-    width: 100%;
-    height: 100%;
 }
 
 table {
@@ -89,6 +84,7 @@ h1 {
 
 h2 {
     font-size: 2rem;
+    margin-top: 0;
 }
 
 h2, p, label, input, select, input[type=button], [type=time] {
@@ -130,10 +126,23 @@ input[type=time]{
 
 
 
+/* Header */
 
+header {   
+    position: sticky; /* Deixa o menu preso durante a barra de rolagem */  
+    top: 0;
+    background-color: rgb(250,250,250);
+    padding: 2px 0; 
+}
 
+/* Vídep */
 
-
+.logo {
+    width: 190px;
+    height: 85px;
+    object-fit: cover;
+    object-position: center;
+}
 
 
 /* seletor universal tem valor de 0
@@ -148,16 +157,10 @@ inline tem força 1000 */
 
 /* Menu */
 
-nav{
-    position: sticky; /* Deixa o menu preso durante a barra de rolagem */
-    top: 0;
-    background-color: rgb(0,0,0, 50%);
-    padding: 2px 0;
-}
-
 .element { /* Controle somente do li inicial onde ficam os elementos */ 
     display: block;
     float: left;
+
 }
 
 .dropdown ul{ /* Primeira Lista */  
@@ -165,7 +168,6 @@ nav{
     text-align: left;
     padding: 10px 0;
     border: 0;
-    
 }
 
 /* .dropdown ul{
@@ -178,7 +180,7 @@ nav{
 }
 
 .dropdown ul li a{
-    color: white;
+    color: black;
     text-decoration: none;
     padding: 10px;
 }
@@ -193,7 +195,7 @@ nav{
     display: none;
     left: 0;
     position: absolute;
-    background-color: rgb(0,0,0, 50%);
+    background-color: rgb(250,250,250);
     padding: 0;
     margin-top: 10px; /* Para aquilibrar o padding top e não chocar as cores */
 }

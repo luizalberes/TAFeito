@@ -15,7 +15,6 @@
         <script src="js/simuleTest.js"></script>
         <script src="js/calcLap.js"></script>
         <script src="js/getLap.js"></script>
-
     </head>
     <body onload="convertPaceToKm(), getSelectPaceToKm(), simuleTest(), calcLap()"> <!-- w3c school -->
         <!-- <img src="hipertrofia-e-dieta.png" />  Imagem -->
@@ -25,137 +24,143 @@
 
             </header>
             <main>
-                <h1 class="title"> <!-- Título -->
-                    TAFeito
-                </h1>
-                <ul>
-                    <li class="dropdownCalc">
-                        <a href="javascript:void(0)" class="dropButton">Calculadoras</a>
-                        <div class="dropdownCalc-content">
-                            <a href="#">Calculadora de Tempo pro Volta</a>
-                            <a href="#">Link 2</a>
+                <nav class="dropdown">
+                    <h1 class="title"> <!-- Título -->
+                        TAFeito
+                    </h1>
+                    <ul>
+                        <li class="element"><a>Conversores</a>
+                            <ul>
+                                <li><a href="#titleConvertPaceToKm">Converter Pace para KM/H</a></li>
+                            </ul>
+                        </li>                            
+                        <li class="element"><a>Simuladores</a>
+                            <ul>
+                                <li><a href="#titleSimuleTest">Simulador de Velocidade Inicial e Final</a></li>
+                                <li><a href="#titleCalcLap">Simulador de Tempo por Volta</a></li>
+                            </ul>
+                        </li>
+                        <li class="element"><a>Calculadoras</a>
+                            <ul>
+                                <li><a href="#titleCalcMetabolism">Calculadora de Metabolismo</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <h2 id="titleConvertPaceToKm"> 
+                    Converter Pace para KM/H
+                </h2>
+                <form>
+                    <select name="selectPaceToKm" id="selectPaceToKm" onchange="getSelectPaceToKm(), convertPaceToKm()">
+                        <option value="pace" selected>Pace para KM/H</option>
+                        <option value="km">KM/H para Pace</option>
+                    </select><br><br>
+                    <label for="paceToKm" id="labelPaceToKm">PACE</label><br>
+                    <input onchange="convertPaceToKm()" type="time" id="paceToKm" name="paceToKm" min="1" max="200" value="05:00"><br>
+                    <p id="convertPaceToKm" value="Velocidade de 12,00km/h"></p>
+                </form>  
+            
+                <h2 id="titleSimuleTest"> 
+                    Simulador de Velocidade Inicial e Final
+                </h2>
+                <form>
+                    <div class="test">
+                        <label class="test">Tempo da Prova</label>
+                        <input class="input" id="timeTest" type="time" min="1" max="60" value="12:00" onchange="simuleTest()"><br>
+                        <label class="test">Distância</label>
+                        <input class="input" id="distanceTest" type="number" min="1" max="42000" value="2400" onchange="simuleTest()"><br>
+                        <label class="test">&nbsp;</label><br>
+                    </div>
+                    <div>
+                        <div class="simuleTest">
+                                <label class="test">Tempo</label>
+                                <input class="input" id="timeInitial" type="time" min="1" max="60" value="05:00" onchange="simuleTest()"><br>
+                                <label class="test">Distância</label>
+                                <input class="input" id="distanceInitial" type="number" step="0.01" min="1" max="42000" disabled><br>
+                                <label class="test">Velocidade</label>
+                                <input class="input" id="velocityInitial" type="number" min="1" max="25" onchange="simuleTest()" value="12.00" step="0.01">
+                        </div>    
+                        <div class="simuleTest">      
+                            <input class="input" id="timeFinal" type="time" min="1" max="60" disabled><br>
+                            <input class="input" id="distanceFinal" type="number" step="0.01" min="1" max="42000" disabled><br>
+                            <input class="input" id="velocityFinal" type="number" min="1" max="25" step="0.1" disabled>
+        
                         </div>
-                    </li>
-                    <li><a href="#lifeStyle">Estilo de Vida</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
-                <h2> 
-                        Converter Pace para KM/H
-                    </h2>
-                    <form>
-                        <select name="selectPaceToKm" id="selectPaceToKm" onchange="getSelectPaceToKm(), convertPaceToKm()">
-                            <option value="pace" selected>Pace para KM/H</option>
-                            <option value="km">KM/H para Pace</option>
-                        </select><br><br>
-                        <label for="paceToKm" id="labelPaceToKm">PACE</label><br>
-                        <input onchange="convertPaceToKm()" type="time" id="paceToKm" name="paceToKm" min="1" max="200" value="05:00"><br>
-                        <p id="convertPaceToKm" value="Velocidade de 12,00km/h"></p>
-                    </form>  
+                    </div><br> 
+                </form>
             
-                    <h2> 
-                        Simulador de Velocidade Inicial e Final
-                    </h2>
-                    <form>
-                        <div class="test">
-                            <label class="test">Tempo da Prova</label>
-                            <input class="input" id="timeTest" type="time" min="1" max="60" value="12:00" onchange="simuleTest()"><br>
-                            <label class="test">Distância</label>
-                            <input class="input" id="distanceTest" type="number" min="1" max="42000" value="2400" onchange="simuleTest()"><br>
-                            <label class="test">&nbsp;</label><br>
-                        </div>
-                        <div>
-                            <div class="simuleTest">
-                                    <label class="test">Tempo</label>
-                                    <input class="input" id="timeInitial" type="time" min="1" max="60" value="05:00" onchange="simuleTest()"><br>
-                                    <label class="test">Distância</label>
-                                    <input class="input" id="distanceInitial" type="number" step="0.01" min="1" max="42000" disabled><br>
-                                    <label class="test">Velocidade</label>
-                                    <input class="input" id="velocityInitial" type="number" min="1" max="25" onchange="simuleTest()" value="12.00" step="0.01">
-                            </div>    
-                            <div class="simuleTest">      
-                                <input class="input" id="timeFinal" type="time" min="1" max="60" disabled><br>
-                                <input class="input" id="distanceFinal" type="number" step="0.01" min="1" max="42000" disabled><br>
-                                <input class="input" id="velocityFinal" type="number" min="1" max="25" step="0.1" disabled>
-            
-                            </div>
-                        </div><br> 
-                    </form>
-            
-            
-            
-                    <h2> 
-                        Calculadora de Tempo por Volta
-                    </h2>
-                    <form>
-                        <div>
-                            <div class="lapsData">
-                                <label for="totalTime">Tempo da Prova</label>
-                                <input id="totalTime" type="time" min="1" max="60" value="12:00" onchange="calcLap()"><br>
-                                <label for="distanceTestLap">Distância</label>
-                                <input id="distanceTestLap" value="2400" type="number" min="1" max="2400" onchange="calcLap()"><br> 
-                                <label for="laps">Voltas</label>
-                                <input id="laps" type="number" value="6" min="1" max="6" onchange="getLap(), calcLap()">      
+                <h2 id="titleCalcLap"> 
+                    Simulador de Tempo por Volta
+                </h2>
+                <form>
+                    <div>
+                        <div class="lapsData">
+                            <label for="totalTime">Tempo da Prova</label>
+                            <input id="totalTime" type="time" min="1" max="60" value="12:00" onchange="calcLap()"><br>
+                            <label for="distanceTestLap">Distância</label>
+                            <input id="distanceTestLap" value="2400" type="number" min="1" max="2400" onchange="calcLap()"><br> 
+                            <label for="laps">Voltas</label>
+                            <input id="laps" type="number" value="6" min="1" max="6" onchange="getLap(), calcLap()">      
+                        
                             
-                                
-                                
-                                <br><br><br>
-            
-            
-                            </div>
-                            <div class="laps">
-                                <label for="lap1">Volta 1</label>
-                                <input id="lap1" type="time" min="1" max="60" value="02:00">
-                                <label id="velocityLap1"></label><br>
-                                <label for="lap2">Volta 2</label>
-                                <input id="lap2" type="time" min="1" max="60" value="02:00">
-                                <label id="velocityLap2"></label><br>                 
-                                <label for="lap3">Volta 3</label>
-                                <input id="lap3" type="time" min="1" max="60" value="02:00">
-                                <label id="velocityLap3"></label><br>                  
-                                <label for="lap4">Volta 4</label>
-                                <input id="lap4" type="time" min="1" max="60" value="02:00">
-                                <label id="velocityLap4"></label><br>
-                                <label for="lap5">Volta 5</label>
-                                <input id="lap5" type="time" min="1" max="60" value="02:00">
-                                <label id="velocityLap5"></label><br>
-                                <label for="lap6">Volta 6</label>
-                                <input id="lap6" type="time" min="1" max="60" value="02:00">
-                                <label id="velocityLap6"></label><br>
-                            </div>
+                            
+                            <br><br><br>
+        
+        
                         </div>
-            
-                    </form>    
-                    <h2> 
-                        Calculadora de Metabolismo
-                    </h2>
-                    <form >
-                        <label for="age">Idade(em anos):</label><br>
-                        <input type="number" id="age" name="age" min="1" max="200" maxlength="3" tabindex="1" title="Digite sua idade" value=""><br>
-                        <label for="weight">Peso(em kg):</label><br>
-                        <input type="number" id="weight" name="weight" min="1" max="400" maxlength="3" tabindex="2" title="Digite seu peso" value=""><br>
-                        <label for="height">Altura(em cm):</label><br>
-                        <input type="number" id="height" name="height" min="1" max="300" maxlength="300" tabindex="3" title="Digite sua altura" value=""><br>
-                        <label>Sexo:</label><br>
-                        <select name="sex" id="sex" tabindex="4">
-                            <option value="" selected>Escolha uma sexo</option>
-                            <option value="feminino">Feminino</option>
-                            <option value="masculino">Masculino</option>
-                        </select><br>
-                        <label>Estratégia:</label><br>
-                        <select name="estrategy" id="estrategy" onchange="getSelectEstrategy()" tabindex="5">
-                            <option value="" selected>Escolha uma estratégia</option>
-                            <option value="cutting">Cutting</option>
-                            <option value="bulking" >Bulking</option>
-                        </select> <br><br>
-                        <input type="button" onclick="calcMetabolism()" id="btCalc" value="Calcular" tabindex="6"> 
-                        <p id="metabolism"></p>
-                        <input type="button" onclick="getValues()" id="btGetValues" value="Sugestão de Macros" tabindex="7" disabled> <br><br>
-                        <!--Input é um elemento vazio, pois só tem atributos, não tem conteúdo-->
-                    </form>      
-                </div>
+                        <div class="laps">
+                            <label for="lap1">Volta 1</label>
+                            <input id="lap1" type="time" min="1" max="60" value="02:00">
+                            <label id="velocityLap1"></label><br>
+                            <label for="lap2">Volta 2</label>
+                            <input id="lap2" type="time" min="1" max="60" value="02:00">
+                            <label id="velocityLap2"></label><br>                 
+                            <label for="lap3">Volta 3</label>
+                            <input id="lap3" type="time" min="1" max="60" value="02:00">
+                            <label id="velocityLap3"></label><br>                  
+                            <label for="lap4">Volta 4</label>
+                            <input id="lap4" type="time" min="1" max="60" value="02:00">
+                            <label id="velocityLap4"></label><br>
+                            <label for="lap5">Volta 5</label>
+                            <input id="lap5" type="time" min="1" max="60" value="02:00">
+                            <label id="velocityLap5"></label><br>
+                            <label for="lap6">Volta 6</label>
+                            <input id="lap6" type="time" min="1" max="60" value="02:00">
+                            <label id="velocityLap6"></label><br>
+                        </div>
+                    </div>
+        
+                </form>    
+                <h2 id="titleCalcMetabolism"> 
+                    Calculadora de Metabolismo
+                </h2>
+                <form >
+                    <label for="age">Idade(em anos):</label><br>
+                    <input type="number" id="age" name="age" min="1" max="200" maxlength="3" tabindex="1" title="Digite sua idade" value=""><br>
+                    <label for="weight">Peso(em kg):</label><br>
+                    <input type="number" id="weight" name="weight" min="1" max="400" maxlength="3" tabindex="2" title="Digite seu peso" value=""><br>
+                    <label for="height">Altura(em cm):</label><br>
+                    <input type="number" id="height" name="height" min="1" max="300" maxlength="300" tabindex="3" title="Digite sua altura" value=""><br>
+                    <label>Sexo:</label><br>
+                    <select name="sex" id="sex" tabindex="4">
+                        <option value="" selected>Escolha uma sexo</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="masculino">Masculino</option>
+                    </select><br>
+                    <label>Estratégia:</label><br>
+                    <select name="estrategy" id="estrategy" onchange="getSelectEstrategy()" tabindex="5">
+                        <option value="" selected>Escolha uma estratégia</option>
+                        <option value="cutting">Cutting</option>
+                        <option value="bulking" >Bulking</option>
+                    </select> <br><br>
+                    <input type="button" onclick="calcMetabolism()" id="btCalc" value="Calcular" tabindex="6"> 
+                    <p id="metabolism"></p>
+                    <input type="button" onclick="getValues()" id="btGetValues" value="Sugestão de Macros" tabindex="7" disabled> <br><br>
+                    <!--Input é um elemento vazio, pois só tem atributos, não tem conteúdo-->
+                </form>     
             </main>
             <footer>
-
             </footer>
     </body>
 </html>

@@ -222,10 +222,10 @@ header {
 
 /* Baseboard */
 
-.baseboard {
+.baseboard { 
     background-color: rgb(255,255,255);
     color: white;
-    padding: 20px 10px;
+    padding: 10px;
     -webkit-text-stroke-color: black; /* Cor da borda da letra */
     text-align: left; /* Alinhamento do texto */
     border-top: 1px solid black;

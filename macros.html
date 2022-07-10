@@ -13,22 +13,37 @@
     <body onload="organizeDiet()"> <!-- w3c school -->
         <div class="container">
             <header>
+                <nav class="dropdown">
+                    <!-- <video autoplay muted loop class="myVideo">
+                        <source src="logo.mp4" type="video/mp4">
+                    </video> -->
+                    <h1 > <!-- Título -->
+                        <img class="logo" src="logo.gif" />  
+                    </h1>
+                    <ul>
+                        <li class="element"><a>Conversores</a>
+                            <ul>
+                                <li><a href="#titleConvertPaceToKm">Converter Pace para KM/H</a></li>
+                            </ul>
+                        </li>                            
+                        <li class="element"><a>Simuladores</a>
+                            <ul>
+                                <li><a href="#titleSimuleTest">Simulador de Velocidade Inicial e Final</a></li>
+                                <li><a href="#titleCalcLap">Simulador de Tempo por Volta</a></li>
+                            </ul>
+                        </li>
+                        <li class="element"><a>Calculadoras</a>
+                            <ul>
+                                <li><a href="#titleCalcMetabolism">Calculadora de Metabolismo</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
             </header>
             <main>
                 <h1 class="title"> <!-- Título -->
                     Macronutrientes
                 </h1>
-                <ul>
-                    <li class="dropdownCalc">
-                        <a href="javascript:void(0)" class="dropButton">Calculadoras</a>
-                        <div class="dropdownCalc-content">
-                            <a href="#">Calculadora de Tempo pro Volta</a>
-                            <a href="#">Link 2</a>
-                        </div>
-                    </li>
-                    <li><a href="#lifeStyle">Estilo de Vida</a></li>
-                    <li><a href="#contact">Contato</a></li>
-                </ul>
                 <h4> Seus Dados
                         <p id="age" ></p>
                         <p id="weight" ></p>

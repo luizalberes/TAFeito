@@ -5,7 +5,6 @@
 }
 
 html, body {
-    color: red;
     font-size: 10px;
     width: 100%;
     height: 100%;
@@ -18,12 +17,12 @@ p {
     text-align: center;
 }
 
-.container {
+/* .container {
     background-image: url("logo.gif");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
+} */
 
 table {
     margin-left: auto;
@@ -84,16 +83,16 @@ h1 {
 }
 
 
-h2 {
+h2, caption {
     font-size: 2rem;
     margin-top: 0;
     color: red;
-    -webkit-text-stroke-width: 0.01px; /* Borda da letra */
+    -webkit-text-stroke-width: 0.1px; /* Borda da letra */
     -webkit-text-stroke-color: black; /* Cor da borda da letra */
     text-align: center; /* Alinhamento do texto */
 }
 
-p, label, input, select, input[type=button], [type=time] {
+p, label, input, select, input[type=button], [type=time], th, td {
     color: white;
     -webkit-text-stroke-width: 0.8px; /* Borda da letra */
     -webkit-text-stroke-color: black; /* Cor da borda da letra */
@@ -235,5 +234,5 @@ header {
     -webkit-text-stroke-color: black; /* Cor da borda da letra */
     text-align: left; /* Alinhamento do texto */
     border-top: 1px solid black;
-
+    background-color: rgb(0,0,0, 0.05)
 }

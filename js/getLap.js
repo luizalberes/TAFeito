@@ -14,13 +14,6 @@ function getLap() {
 
     var auxLaps = 6;
 
-    var lap1 = document.querySelector("#lap1");
-    var lap2 = document.querySelector("#lap2");
-    var lap3 = document.querySelector("#lap3");
-    var lap4 = document.querySelector("#lap4");
-    var lap5 = document.querySelector("#lap5");
-    var lap6 = document.querySelector("#lap6");
-
     if (distance == ""){
         alert("Insira uma distância!");
     } else {
@@ -28,15 +21,15 @@ function getLap() {
             alert("O número excede o máximo de voltas permitidas!");
         } else {
             for (var i = 1; i <= auxLaps; i++){
-                eval('lap'+i).disabled = false;
+                eval('lap'+i).style.visibility = "visible";
+                eval('lblap'+i).innerHTML = "Volta "+i;
             }
         
-        
             for (var i = 0; i < (auxLaps - laps); i++){
-                eval('lap'+(auxLaps - i)).disabled = true;
-                eval('lap'+(auxLaps - i)).value = "00:00";
-                document.getElementById('velocityLap' + (auxLaps - i)).innerHTML = "";
-                //document.getElementById('lap'+(auxLaps - i)).remove();
+                eval('lap'+(auxLaps - i)).style.visibility = "hidden"; //sumir id escolhido do html
+                eval('lblap'+(auxLaps - i)).innerHTML = "";
+                eval('lap'+(auxLaps - i)).innerHTML = "00:00";
+                eval('velocityLap'+(auxLaps - i)).innerHTML = "";
             }
         }
     }

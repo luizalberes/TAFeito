@@ -16,9 +16,11 @@
         <script src="js/simuleTest.js"></script>
         <script src="js/calcLap.js"></script>
         <script src="js/getLap.js"></script>
+        <script src="js/calcMedVelocity.js"></script>
+        <script src="js/getSelectMedVelocity.js"></script>
 
     </head>
-    <body onload="convertPaceToKm(), getSelectPaceToKm(), simuleTest(), calcLap()"> <!-- w3c school -->
+    <body onload="convertPaceToKm(), getSelectPaceToKm(), simuleTest(), calcLap(), calcMedVelocity()"> <!-- w3c school -->
         <!-- <img src="hipertrofia-e-dieta.png" />  Imagem -->
         <!-- <img src="https://source.unsplash.com/random" />  Imagem -->
         <div class="container">
@@ -42,6 +44,7 @@
                         </li>
                         <li class="element"><a>Calculadoras</a>
                             <ul>
+                                <li><a href="#titleMedVelocity">Calculadora de Velocidade Média</a></li>
                                 <li><a href="#titleCalcMetabolism">Calculadora de Metabolismo</a></li>
                             </ul>
                         </li>
@@ -49,6 +52,29 @@
                 </nav>
             </header>
             <main>
+                <h2 id="titleMedVelocity"> 
+                    Calculadora de Velocidade Média
+                </h2>
+                <form>
+                    <div>
+                        <label id="labelmedVelocity">Calcular</label><br>
+                        <select name="medVelocity" id="selectMedVelocity" onchange="getSelectMedVelocity(), calcMedVelocity()">
+                            <option value="velocity" selected>Velocidade</option>
+                            <option value="distance">Distância</option>
+                            <option value="time">Tempo</option>
+                        </select><br><br>
+                    </div>
+                    <div class="medVelocity">
+                        <label class="medVelocity" id="lbMedVelocity1">Tempo</label>
+                        <input class="input" id="medVelocityInput1" type="time" min="1" max="60" value="12:00" onchange="calcMedVelocity()"><br>
+                        <label class="medVelocity" id="lbMedVelocity2">Distância</label>
+                        <input class="input" id="medVelocityInput2" type="number" min="1" max="42000" value="2400" onchange="calcMedVelocity()"><br>
+                    </div>
+                    <div>
+                        <p id="convertMedVelocity" value=""></p>
+                    </div>
+                </form>  
+
                 <h2 id="titleConvertPaceToKm"> 
                     Converter Pace para KM/H
                 </h2>

@@ -32,21 +32,6 @@ function calcLap() {
     
     var timeAll = 0; 
 
-
-    console.log("laps: "+laps);
-    console.log("distance: "+distance);
-    console.log("totalTime: "+totalTime);
-
-    console.log("totalTimeInSeconds: "+totalTimeInSeconds);
-    console.log("totalTimeInSecondsLap: "+totalTimeInSecondsLap);
-    console.log("minuteLap: "+minuteLap);
-    console.log("secondLapInt: "+secondLapInt);
-    console.log("restSecond: "+restSecond);
-
-
-    console.log("")
-
-
     var auxSecond = secondLapInt; //variável auxiliar dos segundos
     var restAuxSecond = restSecond; //segundos que estão sobrando em uma variável auxiliar
 
@@ -55,8 +40,6 @@ function calcLap() {
     }
 
     var auxMinute = minuteLap;
-
-    console.log("minuteLap: "+minuteLap);
 
     if (restAuxSecond > 0){ //quantas segundos estão sobrando
 
@@ -70,10 +53,8 @@ function calcLap() {
         } 
 
         for (var i = 1; i <= restSecond; i++ ){ //adiciona o segundo no array
-            console.log("entrou");
             minutesArray.push(auxMinute);
             secondsArray.push(auxSecond);
-            console.log(secondsArray);
         }
         restAuxSecond = 0; //sai do if para que seja complementado o restante das voltas
     } 
@@ -87,14 +68,10 @@ function calcLap() {
         } 
 
         for (var i = 1; i <= laps - restSecond; i++ ){
-            console.log("entrou 2");
             minutesArray.push(minuteLap);
             secondsArray.push(auxSecond);
-            console.log(secondsArray); 
         }        
     }     
-    
-    console.log(minutesArray);
 
     for (var i = 1; i <= laps; i++ ){
         document.getElementById('lap' + i).value = minutesArray[i-1] + ":" + secondsArray[i-1];
@@ -104,13 +81,10 @@ function calcLap() {
 
     for (i = 1; i <= laps; i++){
         var auxTime = document.getElementById('lap' + i).value;
-        console.log("auxTime: "+auxTime);
         var minute = auxTime.substr(0, 2);
         var second = auxTime.substr(3, 4);
         timeAll = parseInt(timeAll) + parseInt(minute * 60) + parseInt(second);
     }
-
-    console.log("timeAll: "+timeAll);
 
     event.preventDefault();
 }

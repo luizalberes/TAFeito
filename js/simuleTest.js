@@ -7,8 +7,6 @@ var exitIf = "0";
 
 
 function simuleTest() {
-        
-    console.log("entrou simule"); 
 
     var timeTest = document.querySelector("#timeTest").value; //seleciona valor do input do time da prova
     var timeInitial = document.querySelector("#timeInitial").value; //seleciona valor do input do time inicial
@@ -29,9 +27,6 @@ function simuleTest() {
     var distanceInitial = velocityInitial * ((minuteInitial / 60) + (secondInitial / 60 / 60)) * 1000;
     var distanceFinal = distanceTest - distanceInitial;
 
-    
-    console.log(parseInt(distanceInitial)); 
-    console.log(distanceFinal); 
 
     if (distanceInitial - parseInt(distanceInitial) > 0)  {
         document.getElementById('distanceInitial').value = distanceInitial.toFixed(2);
@@ -54,8 +49,6 @@ function simuleTest() {
         document.getElementById('timeFinal').value = "00:00";
         alert("O tempo da prova é menor que o tempo de início!");
     } else if (exitIf != "1") {
-        console.log(exitIf);
-        console.log("entrou");
         if (secondFinal < 10 && secondFinal >= 0){
             secondFinal = "0" + secondFinal;
             if (minuteFinal < 10 && minuteFinal >= 0){
@@ -73,7 +66,6 @@ function simuleTest() {
         
         if (minuteInitial == 0 && secondInitial > 0){
             minuteFinal = minuteFinal - 1;
-            console.log("entrou"); 
         }
         document.getElementById('timeFinal').value = minuteFinal + ":" + secondFinal 
     }

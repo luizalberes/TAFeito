@@ -14,8 +14,6 @@ function getSelectMedVelocity() {
 
     var teste = localStorage.getItem('valueControlSelect');
 
-    console.log("valueControlSelect: "+teste)
-
     if (valueSelectMedVelocity == "velocity") {
         document.getElementById('lbMedVelocity1').innerHTML = "Tempo";
         document.getElementById('lbMedVelocity2').innerHTML = "Distância";

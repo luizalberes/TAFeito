@@ -18,9 +18,11 @@
         <script src="js/getLap.js"></script>
         <script src="js/calcMedVelocity.js"></script>
         <script src="js/getSelectMedVelocity.js"></script>
+        <script src="js/simuleRun.js"></script>
+        <script src="js/deleteRun.js"></script>
 
     </head>
-    <body onload="convertPaceToKm(), getSelectPaceToKm(), simuleTest(), calcLap(), calcMedVelocity()"> <!-- w3c school -->
+    <body onload="convertPaceToKm(), getSelectPaceToKm(), simuleTest(), calcLap(), calcMedVelocity(), deleteRun()"> <!-- w3c school -->
         <!-- <img src="hipertrofia-e-dieta.png" />  Imagem -->
         <!-- <img src="https://source.unsplash.com/random" />  Imagem -->
         <div class="container">
@@ -52,29 +54,39 @@
                 </nav>
             </header>
             <main>
-                <h2 id="titleMedVelocity"> 
-                    Calculadora de Velocidade Média
+                <h2 id="titleSimuleRun"> 
+                    Simulador de Corrida
                 </h2>
-                <form>
-                    <div>
-                        <label id="labelmedVelocity">Calcular</label><br>
-                        <select name="medVelocity" id="selectMedVelocity" onchange="getSelectMedVelocity(), calcMedVelocity()">
-                            <option value="velocity" selected>Velocidade</option>
-                            <option value="distance">Distância</option>
-                            <option value="time">Tempo</option>
-                        </select><br><br>
-                    </div>
-                    <div class="medVelocity">
-                        <label class="medVelocity" id="lbMedVelocity1">Tempo</label>
-                        <input class="input" id="medVelocityInput1" type="time" min="1" value="12:00" onchange="calcMedVelocity()"><br>
-                        <label class="medVelocity" id="lbMedVelocity2">Distância</label>
-                        <input class="input" id="medVelocityInput2" type="number" min="1" value="2400" onchange="calcMedVelocity()"><br>
-                    </div>
-                    <div>
-                        <p id="convertMedVelocity" value=""></p>
-                    </div>
-                </form>  
+                <div>
+                    <div class="runData">
+                        <label for="runTime">Tempo da Prova</label>
+                        <input id="runTime" type="time" min="1" max="60" value="12:00"><br>
+                        <label for="runDistance">Distância</label>
+                        <input id="runDistance" value="2400" type="number" min="1" max="2400"><br> 
+                        <!-- <label for="runLaps">Voltas</label>
+                        <input id="runLaps" type="number" value="6" min="1" max="6">           -->
+                        <br><br><br><br>
 
+                        <form>
+                            <label for="lapTime">Tempo do Sprint</label>
+                            <input id="lapTime" type="time" min="1" max="60" value="02:00"><br>
+                            <label for="lapDistance">Distância</label>
+                            <input id="lapDistance" value="200" type="number" min="1" max="2400"><br> 
+                        </form>   
+                        
+                        <br><br>
+                    </div>
+                    <div>
+                        <input type="button" id="addLap" value="Adicionar Sprint" onclick="simuleRun()"><br><br>
+                    </div>
+                    <div id="tableSimuleRun">
+                        <!-- a tabela será gerada aqui -->
+                    </div>
+                    <div>
+                        <br>    
+                        <input type="button" id="btDeleteLap" onclick="deleteRun()" value="Resetar" ><br><br>
+                    </div>
+                </div>
                 <h2 id="titleConvertPaceToKm"> 
                     Converter Pace para KM/H
                 </h2>
@@ -129,11 +141,8 @@
                             <input id="distanceTestLap" value="2400" type="number" min="1" max="2400" onchange="calcLap()"><br> 
                             <label for="laps">Voltas</label>
                             <input id="laps" type="number" value="6" min="1" max="6" onchange="getLap(), calcLap()">      
-                        
-                            
-                            
+                                 
                             <br><br><br>
-        
         
                         </div>
                         <div class="laps">
@@ -158,7 +167,29 @@
                         </div>
                     </div>
         
-                </form>    
+                </form>
+                <h2 id="titleMedVelocity"> 
+                    Calculadora de Velocidade Média
+                </h2>
+                <form>
+                    <div>
+                        <label id="labelmedVelocity">Calcular</label><br>
+                        <select name="medVelocity" id="selectMedVelocity" onchange="getSelectMedVelocity(), calcMedVelocity()">
+                            <option value="velocity" selected>Velocidade</option>
+                            <option value="distance">Distância</option>
+                            <option value="time">Tempo</option>
+                        </select><br><br>
+                    </div>
+                    <div class="medVelocity">
+                        <label class="medVelocity" id="lbMedVelocity1">Tempo</label>
+                        <input class="input" id="medVelocityInput1" type="time" min="1" value="12:00" onchange="calcMedVelocity()"><br>
+                        <label class="medVelocity" id="lbMedVelocity2">Distância</label>
+                        <input class="input" id="medVelocityInput2" type="number" min="1" value="2400" onchange="calcMedVelocity()"><br>
+                    </div>
+                    <div>
+                        <p id="convertMedVelocity" value=""></p>
+                    </div>
+                </form>      
                 <h2 id="titleCalcMetabolism"> 
                     Calculadora de Metabolismo
                 </h2>

@@ -17,6 +17,10 @@ main {
     padding-top: 10px;
 }
 
+#btDeleteLap{
+    visibility: hidden;
+}
+
 p {
     text-align: center;
 }
@@ -62,6 +66,26 @@ table {
 }
 
 .lapsData {
+    text-align: right;
+    /* display: table-cell; */
+    display: inline-block; /* colocar uma div ao lado da outra */
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+}
+
+.runData {
+    text-align: right;
+    /* display: table-cell; */
+    display: inline-block; /* colocar uma div ao lado da outra */
+    align-items: center;
+    justify-content: center;
+    /* flex-direction: row;
+    flex-wrap: wrap; */
+}
+
+.lapData {
     text-align: right;
     /* display: table-cell; */
     display: inline-block; /* colocar uma div ao lado da outra */
@@ -251,3 +275,4 @@ header {
     height: 40px;
     width: 100%; */
 }
+

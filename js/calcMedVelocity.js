@@ -13,11 +13,8 @@ var controlSelect;
 
 
 function calcMedVelocity() {
-    console.log("")
-    console.log("entrou")
 
     if (controlSelect == 1) {
-        console.log("entrou controle")
         if (valueSelectMedVelocity == "velocity") {
             valueMedVelocityInput1 = "12:00";
             valueMedVelocityInput2 = "2400";
@@ -42,20 +39,9 @@ function calcMedVelocity() {
 
 
     var controlSelect = localStorage.getItem('valueControlSelect');
-
-    console.log("controlSelect "+controlSelect);
-
-    console.log("valueSelectMedVelocity "+valueSelectMedVelocity)
-    console.log("valueMedVelocityInput1 "+valueMedVelocityInput1)
-    console.log("valueMedVelocityInput2 "+valueMedVelocityInput2)
-
-
-    auxInput1 = valueMedVelocityInput1;
-    auxInput2 = valueMedVelocityInput2;
     
     if (valueSelectMedVelocity == "velocity"){
 
-        console.log("velocidade")
         // km to h
         minute = valueMedVelocityInput1.substr(0, 2) * 60;
         second = valueMedVelocityInput1.substr(3, 4);
@@ -77,7 +63,6 @@ function calcMedVelocity() {
 
         document.getElementById('convertMedVelocity').innerHTML = "Velocidade de "+ auxvelocity + "km/h ou Pace de "+ minutePace + ":" + secondPace + " por km";
     } else if (valueSelectMedVelocity == "distance"){
-        console.log("distância")
 
         // cálculo da distância
         minute = valueMedVelocityInput1.substr(0, 2) / 60;
@@ -87,7 +72,6 @@ function calcMedVelocity() {
 
         document.getElementById('convertMedVelocity').innerHTML = "Distância de " + distance + " metros";
     } else {
-        console.log("tempo")
 
         // cálculo do tempo
         distance = valueMedVelocityInput1;
@@ -114,9 +98,6 @@ function calcMedVelocity() {
     localStorage.setItem('valueControlSelect', 0);
 
     teste2 = localStorage.getItem('valueControlSelect');
-
-    console.log("valueControlSelect "+teste2);
-
 
     event.preventDefault();
 }

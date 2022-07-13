@@ -110,7 +110,7 @@ function simuleRun() {
 
     var minutePace = Math.trunc(totalSecondPace / 60);
 
-    var secondPace = Math.floor(((totalSecondPace / 60) - minutePace) * 60);
+    var secondPace = Math.round(((totalSecondPace / 60) - minutePace) * 60);
 
     if (secondPace < 10){
         secondPace = "0" + secondPace;
@@ -132,9 +132,9 @@ function simuleRun() {
 
     sumDistance = parseInt(sumDistance) + parseInt(sprintDistance);
 
-    var minuteTimeTotal = Math.trunc(sumTime / 60);
+    var minuteTimeTotal = Math.trunc(sumTime / 60); //fica só com a parte antes da vírgula
 
-    var secondTimeTotal = Math.floor(((sumTime / 60) - minuteTimeTotal) * 60);
+    var secondTimeTotal = Math.round(((sumTime / 60) - minuteTimeTotal) * 60); //arredonda para o mais próximo
 
     console.log(((sumTime / 60) - minuteTimeTotal) * 60);
     console.log(secondTimeTotal);
@@ -228,7 +228,7 @@ function simuleRun() {
                 sumTime = totalSprints;
                 
                 var minuteRest = Math.trunc(restSeconds / 60);
-                var secondRest = Math.floor(((restSeconds / 60) - minuteRest) * 60);
+                var secondRest = Math.round(((restSeconds / 60) - minuteRest) * 60);
 
                 if (secondRest < 10){
                     secondRest = "0" + secondRest;
@@ -306,7 +306,7 @@ function simuleRun() {
                     sumTime = totalSprints;
                     
                     var minuteRest = Math.trunc(restSeconds / 60);
-                    var secondRest = Math.floor(((restSeconds / 60) - minuteRest) * 60);
+                    var secondRest = Math.round(((restSeconds / 60) - minuteRest) * 60);
             
                     if (secondRest < 10){
                         secondRest = "0" + secondRest;
@@ -342,7 +342,7 @@ function simuleRun() {
                 sumTime = totalSprints;
                 
                 var minuteRest = Math.trunc(restSeconds / 60);
-                var secondRest = Math.floor(((restSeconds / 60) - minuteRest) * 60);
+                var secondRest = Math.round(((restSeconds / 60) - minuteRest) * 60);
 
                 if (secondRest < 10){
                     secondRest = "0" + secondRest;

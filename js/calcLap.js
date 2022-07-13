@@ -29,8 +29,6 @@ function calcLap() {
     var secondLapInt = Math.trunc(totalTimeInSecondsLap - (minuteLap * 60));//segundo de forma inteira
 
     var restSecond = totalTimeInSeconds - (Math.trunc(totalTimeInSecondsLap) * laps); //segundos que sobraram
-    
-    var timeAll = 0; 
 
     var auxSecond = secondLapInt; //variável auxiliar dos segundos
     var restAuxSecond = restSecond; //segundos que estão sobrando em uma variável auxiliar
@@ -74,16 +72,9 @@ function calcLap() {
     }     
 
     for (var i = 1; i <= laps; i++ ){
-        document.getElementById('lap' + i).value = minutesArray[i-1] + ":" + secondsArray[i-1];
+        document.getElementById('lap' + i).innerHTML = minutesArray[i-1] + ":" + secondsArray[i-1];
         var vm = ((distance / laps) / ((minuteLap * 60) + parseInt(secondsArray[i-1]))) * 3.6;
-        document.getElementById('velocityLap' + i).innerHTML = "Velocidade de " + vm.toFixed(2).toString().replace(".", ",") + "km/h";
-    }
-
-    for (i = 1; i <= laps; i++){
-        var auxTime = document.getElementById('lap' + i).value;
-        var minute = auxTime.substr(0, 2);
-        var second = auxTime.substr(3, 4);
-        timeAll = parseInt(timeAll) + parseInt(minute * 60) + parseInt(second);
+        document.getElementById('velocityLap' + i).innerHTML = "com velocidade de " + vm.toFixed(2).toString().replace(".", ",") + "km/h";
     }
 
     event.preventDefault();

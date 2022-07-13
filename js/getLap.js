@@ -21,15 +21,15 @@ function getLap() {
             alert("O número excede o máximo de voltas permitidas!");
         } else {
             for (var i = 1; i <= auxLaps; i++){
-                eval('lap'+i).style.visibility = "visible";
-                eval('lblap'+i).innerHTML = "Volta "+i;
+                // eval('lap'+i).style.visibility = "visible";
+                document.getElementById('lblap'+i).innerHTML = "Volta "+i+ " no tempo de ";
             }
         
             for (var i = 0; i < (auxLaps - laps); i++){
-                eval('lap'+(auxLaps - i)).style.visibility = "hidden"; //sumir id escolhido do html
-                eval('lblap'+(auxLaps - i)).innerHTML = "";
-                eval('lap'+(auxLaps - i)).innerHTML = "00:00";
-                eval('velocityLap'+(auxLaps - i)).innerHTML = "";
+                // eval('lap'+(auxLaps - i)).style.visibility = "hidden"; //sumir id escolhido do html
+                document.getElementById('lblap'+(auxLaps - i)).innerHTML = "";
+                document.getElementById('lap'+(auxLaps - i)).innerHTML = "";
+                document.getElementById('velocityLap'+(auxLaps - i)).innerHTML = "";
             }
         }
     }

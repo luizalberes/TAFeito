@@ -40,6 +40,7 @@
                         </li>                            
                         <li class="element"><a>Simuladores</a>
                             <ul>
+                                <li><a href="#titleSimuleRun">Simulador de Prova</a></li>
                                 <li><a href="#titleSimuleTest">Simulador de Velocidade Inicial e Final</a></li>
                                 <li><a href="#titleCalcLap">Simulador de Tempo por Volta</a></li>
                             </ul>
@@ -55,7 +56,7 @@
             </header>
             <main>
                 <h2 id="titleSimuleRun"> 
-                    Simulador de Corrida
+                    Simulador de Prova
                 </h2>
                 <div>
                     <div class="runData">
@@ -67,24 +68,22 @@
                         <input id="runLaps" type="number" value="6" min="1" max="6">           -->
                         <br><br><br><br>
 
-                        <form>
-                            <label for="lapTime">Tempo do Sprint</label>
-                            <input id="lapTime" type="time" min="1" max="60" value="02:00"><br>
-                            <label for="lapDistance">Distância</label>
-                            <input id="lapDistance" value="200" type="number" min="1" max="2400"><br> 
-                        </form>   
+                        <label for="sprintTime">Tempo do Sprint</label>
+                        <input id="sprintTime" type="time" min="1" max="60" value="02:00"><br>
+                        <label for="sprintDistance">Distância</label>
+                        <input id="sprintDistance" value="400" type="number" min="1" max="2400"><br> 
                         
                         <br><br>
                     </div>
                     <div>
-                        <input type="button" id="addLap" value="Adicionar Sprint" onclick="simuleRun()"><br><br>
+                        <input type="button" id="btAddSprint" value="Adicionar Sprint" onclick="simuleRun()"><br><br>
                     </div>
                     <div id="tableSimuleRun">
                         <!-- a tabela será gerada aqui -->
                     </div>
                     <div>
                         <br>    
-                        <input type="button" id="btDeleteLap" onclick="deleteRun()" value="Resetar" ><br><br>
+                        <input type="button" id="btDeleteSprint" onclick="deleteRun()" value="Resetar" ><br><br>
                     </div>
                 </div>
                 <h2 id="titleConvertPaceToKm"> 
@@ -146,23 +145,23 @@
         
                         </div>
                         <div class="laps">
-                            <label id="lblap1">Volta 1</label>
-                            <input id="lap1" type="time" min="1" max="60" value="02:00" disabled>
+                            <label id="lblap1">Volta 1 no tempo de </label>
+                            <label id="lap1"></label>
                             <label id="velocityLap1"></label><br>
-                            <label id="lblap2">Volta 2</label>
-                            <input id="lap2" type="time" min="1" max="60" value="02:00" disabled>
+                            <label id="lblap2">Volta 2 no tempo de </label>
+                            <label id="lap2"></label>
                             <label id="velocityLap2"></label><br>                 
-                            <label id="lblap3">Volta 3</label>
-                            <input id="lap3" type="time" min="1" max="60" value="02:00" disabled>
+                            <label id="lblap3">Volta 3 no tempo de </label>
+                            <label id="lap3"></label>
                             <label id="velocityLap3"></label><br>                  
-                            <label id="lblap4">Volta 4</label>
-                            <input id="lap4" type="time" min="1" max="60" value="02:00" disabled>
+                            <label id="lblap4">Volta 4 no tempo de </label>
+                            <label id="lap4"></label>
                             <label id="velocityLap4"></label><br>
-                            <label id="lblap5">Volta 5</label>
-                            <input id="lap5" type="time" min="1" max="60" value="02:00" disabled>
+                            <label id="lblap5">Volta 5 no tempo de </label>
+                            <label id="lap5"></label>
                             <label id="velocityLap5"></label><br>
-                            <label id="lblap6">Volta 6</label>
-                            <input id="lap6" type="time" min="1" max="60" value="02:00" disabled>
+                            <label id="lblap6">Volta 6 no tempo de </label>
+                            <label id="lap6"></label>
                             <label id="velocityLap6"></label><br><br>
                         </div>
                     </div>

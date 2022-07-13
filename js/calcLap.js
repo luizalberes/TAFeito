@@ -5,8 +5,6 @@ var pace = "";
 var kmtoh = "";
 var exitIf = "0";
 
-
-
 function calcLap() {
 
     let secondsArray = [];
@@ -26,16 +24,12 @@ function calcLap() {
 
     var minuteLap = Math.trunc(totalTimeInSecondsLap / 60); //minuto de cada volta
 
-    var secondLapInt = Math.trunc(totalTimeInSecondsLap - (minuteLap * 60));//segundo de forma inteira
+    var secondLap = Math.trunc(totalTimeInSecondsLap - (minuteLap * 60));//segundo de forma inteira sem arredondar
 
     var restSecond = totalTimeInSeconds - (Math.trunc(totalTimeInSecondsLap) * laps); //segundos que sobraram
-
-    var auxSecond = secondLapInt; //variável auxiliar dos segundos
+    
+    var auxSecond = parseInt(secondLap); //variável auxiliar dos segundos
     var restAuxSecond = restSecond; //segundos que estão sobrando em uma variável auxiliar
-
-    if (minuteLap < 10 && minuteLap >= 0){ //se o minuto tiver entre 0 e 9 acrescenta um zero à esquerda
-        minuteLap = "0" + parseInt(minuteLap);
-    }
 
     var auxMinute = minuteLap;
 
@@ -43,12 +37,10 @@ function calcLap() {
 
         auxSecond++; //acrescenta um segundo nos segundos da volta
 
-        if (auxSecond < 10 && auxSecond >= 0){ //se o segundo tiver entre 0 e 9 acrescenta um zero à esquerda
-            auxSecond = "0" + auxSecond;
-        } else if (auxSecond == 60){
-            auxMinute = "0" + (parseInt(minuteLap) + parseInt(1));
-            auxSecond = "00";
-        } 
+        var auxTransformTime = transformTime(auxSecond, auxMinute);
+        
+        auxSecond = auxTransformTime[0];
+        auxMinute = auxTransformTime[1];
 
         for (var i = 1; i <= restSecond; i++ ){ //adiciona o segundo no array
             minutesArray.push(auxMinute);
@@ -59,11 +51,12 @@ function calcLap() {
 
     if (restAuxSecond == 0) {   
 
-        auxSecond = secondLapInt;
+        auxSecond = secondLap;
 
-        if (auxSecond < 10 && auxSecond >= 0){ //se o segundo tive entre 0 e 9 acrescenta um zero à esquerda
-            auxSecond = "0" + auxSecond;
-        } 
+        var auxTransformTime = transformTime(auxSecond, minuteLap);
+        
+        auxSecond = auxTransformTime[0];
+        minuteLap = auxTransformTime[1];
 
         for (var i = 1; i <= laps - restSecond; i++ ){
             minutesArray.push(minuteLap);

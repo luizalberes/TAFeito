@@ -124,19 +124,10 @@ function simuleRun() {
 
     var secondPace = Math.round(((totalSecondPace / 60) - minutePace) * 60);
 
-    if (secondPace < 10){
-        secondPace = "0" + secondPace;
-    } else if (secondPace == 60) {
-        secondPace = "00";
-        minutePace++;
-    }
-
-    if (minutePace < 10){
-        minutePace = "0" + minutePace;
-    }
-
-    console.log(secondPace);
-    console.log(minutePace);
+    var auxTransformTime = transformTime(secondPace, minutePace);
+        
+    secondPace = auxTransformTime[0];
+    minutePace = auxTransformTime[1];
 
     var pace = minutePace + ":" + secondPace;
 
@@ -148,19 +139,10 @@ function simuleRun() {
 
     var secondTimeTotal = Math.round(((sumTime / 60) - minuteTimeTotal) * 60); //arredonda para o mais próximo
 
-    console.log(((sumTime / 60) - minuteTimeTotal) * 60);
-    console.log(secondTimeTotal);
-
-    if (secondTimeTotal < 10){
-        secondTimeTotal = "0" + secondTimeTotal;
-    } else if (secondTimeTotal == 60) {
-        secondTimeTotal = "0" + secondTimeTotal;
-        minuteTimeTotal++;
-    }
-
-    if (minuteTimeTotal < 10){
-        minuteTimeTotal = "0" + minuteTimeTotal;
-    }
+    var auxTransformTime = transformTime(secondTimeTotal, minuteTimeTotal);
+        
+    secondTimeTotal = auxTransformTime[0];
+    minuteTimeTotal = auxTransformTime[1];
 
     var timeTotal = minuteTimeTotal + ":" + secondTimeTotal;
 
@@ -246,16 +228,10 @@ function simuleRun() {
                 var minuteRest = Math.trunc(restSeconds / 60);
                 var secondRest = Math.round(((restSeconds / 60) - minuteRest) * 60);
 
-                if (secondRest < 10){
-                    secondRest = "0" + secondRest;
-                } else if (secondRest == 60) {
-                    secondRest = "00";
-                    minuteRest++;
-                }
-            
-                if (minuteRest < 10){
-                    minuteRest = "0" + minuteRest;
-                }
+                var auxTransformTime = transformTime(secondRest, minuteRest);
+        
+                secondRest = auxTransformTime[0];
+                minuteRest = auxTransformTime[1];
 
                 //distância para completar
                 var totalDistances = sumDistance - sprintDistance; //valor que tá no total da tabela
@@ -327,16 +303,10 @@ function simuleRun() {
                     var minuteRest = Math.trunc(restSeconds / 60);
                     var secondRest = Math.round(((restSeconds / 60) - minuteRest) * 60);
             
-                    if (secondRest < 10){
-                        secondRest = "0" + secondRest;
-                    } else if (secondRest == 60) {
-                        secondRest = "00";
-                        minuteRest++;
-                    }
-                
-                    if (minuteRest < 10){
-                        minuteRest = "0" + minuteRest;
-                    }
+                    var auxTransformTime = transformTime(secondRest, minuteRest);
+        
+                    secondRest = auxTransformTime[0];
+                    minuteRest = auxTransformTime[1];
             
                     //distância para completar
                     var totalDistances = sumDistance - sprintDistance; //valor que tá no total da tabela
@@ -362,17 +332,11 @@ function simuleRun() {
                 
                 var minuteRest = Math.trunc(restSeconds / 60);
                 var secondRest = Math.round(((restSeconds / 60) - minuteRest) * 60);
-
-                if (secondRest < 10){
-                    secondRest = "0" + secondRest;
-                } else if (secondRest == 60) {
-                    secondRest = "00";
-                    minuteRest++;
-                }
-            
-                if (minuteRest < 10){
-                    minuteRest = "0" + minuteRest;
-                }
+                
+                var auxTransformTime = transformTime(secondRest, minuteRest);
+        
+                secondRest = auxTransformTime[0];
+                minuteRest = auxTransformTime[1];
 
                 //distância para completar
                 var totalDistances = sumDistance - sprintDistance; //valor que tá no total da tabela

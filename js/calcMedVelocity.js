@@ -53,13 +53,12 @@ function calcMedVelocity() {
         // pace
         paceTemp = (1 / velocity) * 60;     
         minutePace = Math.trunc(paceTemp);
-        secondPace = Math.trunc((paceTemp - minutePace) * 60);
-        if (minutePace < 10){
-            minutePace = "0" + minutePace;
-        }
-        if (secondPace < 10){
-            secondPace = "0" + secondPace;            
-        }
+        secondPace = (paceTemp - minutePace) * 60;
+
+        var auxTransformTime = transformTime(secondPace, minutePace);
+        
+        minutePace = auxTransformTime[0];
+        secondPace = auxTransformTime[1];
 
         document.getElementById('convertMedVelocity').innerHTML = "Velocidade de "+ auxvelocity + "km/h ou Pace de "+ minutePace + ":" + secondPace + " por km";
     } else if (valueSelectMedVelocity == "distance"){
@@ -80,17 +79,12 @@ function calcMedVelocity() {
         time = (distance / 1000) / velocity;
 
         minute = Math.trunc(time * 60);
-        second = Math.ceil(((time * 60) - minute) * 60);
+        second = ((time * 60) - minute) * 60;
 
-        if (minute < 10){
-            minute = "0" + minute;
-        } 
-        if (second < 10){
-            second = "0" + second;            
-        } else if (second == 60) {
-            minute = minute + 1;
-            second = "00";
-        }
+        var auxTransformTime = transformTime(second, minute);
+        
+        second = auxTransformTime[0];
+        minute = auxTransformTime[1];
 
         document.getElementById('convertMedVelocity').innerHTML = "Tempo de " + minute + ":" + second;
     }

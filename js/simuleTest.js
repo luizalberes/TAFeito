@@ -49,12 +49,7 @@ function simuleTest() {
         document.getElementById('timeFinal').value = "00:00";
         alert("O tempo da prova é menor que o tempo de início!");
     } else if (exitIf != "1") {
-        if (secondFinal < 10 && secondFinal >= 0){
-            secondFinal = "0" + secondFinal;
-            if (minuteFinal < 10 && minuteFinal >= 0){
-                minuteFinal = "0" + minuteFinal;
-            }           
-        } else if (secondFinal < 0){
+        if (secondFinal < 0){
             secondFinal = 60 - secondInitial;
             if (secondFinal < 10){
                 secondFinal = "0" + secondFinal;            
@@ -62,7 +57,12 @@ function simuleTest() {
             if (minuteFinal < 10 && minuteFinal > 0){
                 minuteFinal = "0" + (minuteFinal - 1);
             } 
-        } 
+        } else {
+            var auxTransformTime = transformTime(secondFinal, minuteFinal);
+        
+            secondFinal = auxTransformTime[0];
+            minuteFinal = auxTransformTime[1];
+        }
         
         if (minuteInitial == 0 && secondInitial > 0){
             minuteFinal = minuteFinal - 1;
@@ -72,12 +72,14 @@ function simuleTest() {
 
     if (distanceFinal < 0){
         alert("A velocidade inicial seria suficiente para completar a prova!");
-        document.getElementById('timeInitial').value = "00:00"; 
-        document.getElementById('timeFinal').value = "00:00";
-        document.getElementById('distanceInitial').value = "0";
-        document.getElementById('distanceFinal').value = "0";
-        document.getElementById('velocityInitial').value = "0";
-        document.getElementById('velocityFinal').value = "0";           
+        document.getElementById('timeTest').value = "12:00"; 
+        document.getElementById('distanceTest').value = "2400";
+        document.getElementById('timeInitial').value = "05:00"; 
+        document.getElementById('timeFinal').value = "07:00";
+        document.getElementById('distanceInitial').value = "1000";
+        document.getElementById('distanceFinal').value = "1400";
+        document.getElementById('velocityInitial').value = "12";
+        document.getElementById('velocityFinal').value = "12";           
     }
 
     event.preventDefault();

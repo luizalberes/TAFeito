@@ -18,13 +18,13 @@ function convertPaceToKm() {
     } else {
         paceTemp = (1 / valuePaceToKm) * 60;     
         minute = Math.trunc(paceTemp);
-        second = Math.trunc((paceTemp - minute) * 60);
-        if (minute < 10){
-            minute = "0" + minute;
-        }
-        if (second < 10){
-            second = "0" + second;            
-        }  
+        second = (paceTemp - minute) * 60;
+
+        var auxTransformTime = transformTime(second, minute); //corrigir os segundos e minutos se for preciso
+        
+        second = auxTransformTime[0];
+        minute = auxTransformTime[1];
+
         document.getElementById('convertPaceToKm').innerHTML = "Pace de "+ minute + ":" + second + " por km"; 
     }
     

@@ -129,11 +129,16 @@ h2, caption {
     text-align: center; /* Alinhamento do texto */
 }
 
-p, label, input, select, input[type=button], [type=time], th, td {
+p, label, input, select, input[type=button], [type=time], input[type=radio],  th, td {
     color: white;
     -webkit-text-stroke-width: 0.8px; /* Borda da letra */
     -webkit-text-stroke-color: black; /* Cor da borda da letra */
     text-align: center; /* Alinhamento do texto */
+}
+
+.radio {
+    text-align: left;
+
 }
 
 label {

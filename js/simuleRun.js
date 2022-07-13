@@ -12,6 +12,7 @@ var table = [];
 var sumTime = 0;
 var sumDistance = 0;
 var controlElse = false;
+var timeAcum = [];
 
 // function transformTime(m, s) {
 //     console.log("entrou");
@@ -39,13 +40,17 @@ function simuleRun() {
 
     console.log("control"+control);
 
+    console.log(table);
+
     if (container == "") {
+        console.log(table);
         table = [
             '<table>',
                 '<thead>',
                     '<tr>',
                         '<th>Sprint</th>',
                         '<th>Tempo</th>',
+                        '<th>Tempo Acumulado</th>',
                         '<th>Distância</th>',
                         '<th>Velocidade</th>',
                         '<th>Pace</th>',
@@ -55,14 +60,16 @@ function simuleRun() {
                     // '<tr>', 
                     //     '<td>1</td>',
                     //     '<td>data</td>',
+                    //     '<td>data</td>',                    
                     //     '<td>data</td>',
                     //     '<td>data</td>',
                     //     '<td>data</td>',
                     // '</tr>',
                 '</tbody>',
-                '<tfoot>', //índice 19
+                '<tfoot>', //índice 20
                     '<tr>', 
-                        '<td>Total</td>', //índice 21
+                        '<td>Total</td>', //índice 22
+                    //     '<td>data</td>',
                     //     '<td>data</td>',
                     //     '<td>data</td>',
                     //     '<td>data</td>',
@@ -73,11 +80,16 @@ function simuleRun() {
         ]
         sumTime = 0;
         sumDistance = 0;
+        timeAcum = [];
+        console.log(table);
     } else {      
         if (controlElse == false){
-            table.splice((table.length-7),(table.length+1));
+            
+            table.splice((table.length-8),(table.length+1));
         } 
-    }    
+    }
+    
+    
 
     //botão para adicionar o split
     var btAddSprint = document.getElementById("btAddSprint");
@@ -168,36 +180,40 @@ function simuleRun() {
         sprint = localStorage.getItem('valueLap');
     }
 
+    console.log(control);
     if (control == 0) {
         //O total que tá na tabela + o tempo do próximo sprint igual ao tempo da corrida
         if (((sumDistance - sprintDistance) + parseInt(sprintDistance) == runDistance) ||
         ((sumTime - totalSecondSprint) + parseInt(totalSecondSprint) == totalSecondRunTime)) { 
             if (((sumDistance - sprintDistance) + parseInt(sprintDistance) == runDistance) &&
             ((sumTime - totalSecondSprint) + parseInt(totalSecondSprint) == totalSecondRunTime)) {
+                timeAcum.push(timeTotal);
                 for (var i = 0; i < 1; i++){
                     table.splice((parseInt(auxIndex) + parseInt(i)), 0, '<tr>'); //11
                     for (var j = 1; j <= 1; j++){
                         table.splice((parseInt(auxIndex) + parseInt(j)), 0,'<td>'+ sprint +'</td>'); //12
                         for (var k = 2; k <= 2; k++){
                             table.splice((parseInt(auxIndex) + parseInt(k)), 0,'<td>'+ sprintTime +'</td>'); //13
-                            table.splice((parseInt(auxIndex) + parseInt(k+1)), 0,'<td>'+ sprintDistance +'</td>'); //14
-                            table.splice((parseInt(auxIndex) + parseInt(k+2)), 0,'<td>'+ sprintVelocity +'</td>'); //15
-                            table.splice((parseInt(auxIndex) + parseInt(k+3)), 0,'<td>'+ pace +'</td>'); //16
+                            table.splice((parseInt(auxIndex) + parseInt(k+1)), 0,'<td>'+ timeAcum[sprint-1] +'</td>'); //14
+                            table.splice((parseInt(auxIndex) + parseInt(k+2)), 0,'<td>'+ sprintDistance +'</td>'); //15
+                            table.splice((parseInt(auxIndex) + parseInt(k+3)), 0,'<td>'+ sprintVelocity +'</td>'); //16
+                            table.splice((parseInt(auxIndex) + parseInt(k+4)), 0,'<td>'+ pace +'</td>'); //17
                         }
                     }
-                    table.splice((parseInt(auxIndex) + parseInt(6)), 0, '</tr>'); //17
+                    table.splice((parseInt(auxIndex) + parseInt(7)), 0, '</tr>'); //18
                 }
 
-                auxIndex = (parseInt(auxIndex) + parseInt(6));
+                auxIndex = (parseInt(auxIndex) + parseInt(7));
 
                 // adicionando tfoot
-                table.splice((parseInt(auxIndex) + parseInt(5)), 0,'<td>'+ timeTotal +'</td>'); //22
-                table.splice((parseInt(auxIndex) + parseInt(6)), 0,'<td>'+ sumDistance +'</td>'); //23
+                table.splice((parseInt(auxIndex) + parseInt(6)), 0,'<td>'+ timeTotal +'</td>'); //23
                 table.splice((parseInt(auxIndex) + parseInt(7)), 0,'<td> - </td>'); //24
-                table.splice((parseInt(auxIndex) + parseInt(8)), 0,'<td> - </td>'); //25
-                table.splice((parseInt(auxIndex) + parseInt(9)), 0,'</tr>'); //26
-                table.splice((parseInt(auxIndex) + parseInt(10)), 0,'</tfoot>'); //27
-                table.splice((parseInt(auxIndex) + parseInt(11)), 0,'</table>'); //28
+                table.splice((parseInt(auxIndex) + parseInt(8)), 0,'<td>' + sumDistance + '</td>'); //25
+                table.splice((parseInt(auxIndex) + parseInt(9)), 0,'<td> - </td>'); //26
+                table.splice((parseInt(auxIndex) + parseInt(10)), 0,'<td> - </td>'); //27
+                table.splice((parseInt(auxIndex) + parseInt(11)), 0,'</tr>'); //28
+                table.splice((parseInt(auxIndex) + parseInt(12)), 0,'</tfoot>'); //29
+                table.splice((parseInt(auxIndex) + parseInt(13)), 0,'</table>'); //30
 
                 auxIndex++;;
 
@@ -256,30 +272,33 @@ function simuleRun() {
         } else {
             if (sumTime <= totalSecondRunTime){
                 if (sumDistance <= runDistance){
+                    timeAcum.push(timeTotal);
                     for (var i = 0; i < 1; i++){
                         table.splice((parseInt(auxIndex) + parseInt(i)), 0, '<tr>'); //11
                         for (var j = 1; j <= 1; j++){
                             table.splice((parseInt(auxIndex) + parseInt(j)), 0,'<td>'+ sprint +'</td>'); //12
                             for (var k = 2; k <= 2; k++){
                                 table.splice((parseInt(auxIndex) + parseInt(k)), 0,'<td>'+ sprintTime +'</td>'); //13
-                                table.splice((parseInt(auxIndex) + parseInt(k+1)), 0,'<td>'+ sprintDistance +'</td>'); //14
-                                table.splice((parseInt(auxIndex) + parseInt(k+2)), 0,'<td>'+ sprintVelocity +'</td>'); //15
-                                table.splice((parseInt(auxIndex) + parseInt(k+3)), 0,'<td>'+ pace +'</td>'); //16
+                                table.splice((parseInt(auxIndex) + parseInt(k+1)), 0,'<td>'+ timeAcum[sprint-1] +'</td>'); //14
+                                table.splice((parseInt(auxIndex) + parseInt(k+2)), 0,'<td>'+ sprintDistance +'</td>'); //15
+                                table.splice((parseInt(auxIndex) + parseInt(k+3)), 0,'<td>'+ sprintVelocity +'</td>'); //16
+                                table.splice((parseInt(auxIndex) + parseInt(k+4)), 0,'<td>'+ pace +'</td>'); //17
                             }
                         }
-                        table.splice((parseInt(auxIndex) + parseInt(6)), 0, '</tr>'); //17
+                        table.splice((parseInt(auxIndex) + parseInt(7)), 0, '</tr>'); //18
                     }
-
-                    auxIndex = (parseInt(auxIndex) + parseInt(6));
-
+    
+                    auxIndex = (parseInt(auxIndex) + parseInt(7));
+    
                     // adicionando tfoot
-                    table.splice((parseInt(auxIndex) + parseInt(5)), 0,'<td>'+ timeTotal +'</td>'); //22
-                    table.splice((parseInt(auxIndex) + parseInt(6)), 0,'<td>'+ sumDistance +'</td>'); //23
+                    table.splice((parseInt(auxIndex) + parseInt(6)), 0,'<td>'+ timeTotal +'</td>'); //23
                     table.splice((parseInt(auxIndex) + parseInt(7)), 0,'<td> - </td>'); //24
-                    table.splice((parseInt(auxIndex) + parseInt(8)), 0,'<td> - </td>'); //25
-                    table.splice((parseInt(auxIndex) + parseInt(9)), 0,'</tr>'); //26
-                    table.splice((parseInt(auxIndex) + parseInt(10)), 0,'</tfoot>'); //27
-                    table.splice((parseInt(auxIndex) + parseInt(11)), 0,'</table>'); //28
+                    table.splice((parseInt(auxIndex) + parseInt(8)), 0,'<td>' + sumDistance + '</td>'); //25
+                    table.splice((parseInt(auxIndex) + parseInt(9)), 0,'<td> - </td>'); //26
+                    table.splice((parseInt(auxIndex) + parseInt(10)), 0,'<td> - </td>'); //27
+                    table.splice((parseInt(auxIndex) + parseInt(11)), 0,'</tr>'); //28
+                    table.splice((parseInt(auxIndex) + parseInt(12)), 0,'</tfoot>'); //29
+                    table.splice((parseInt(auxIndex) + parseInt(13)), 0,'</table>'); //30
 
                     auxIndex++;;
 
@@ -369,30 +388,33 @@ function simuleRun() {
             }
         } 
     } else {
+        timeAcum.push(timeTotal);
         for (var i = 0; i < 1; i++){
             table.splice((parseInt(auxIndex) + parseInt(i)), 0, '<tr>'); //11
             for (var j = 1; j <= 1; j++){
                 table.splice((parseInt(auxIndex) + parseInt(j)), 0,'<td>'+ sprint +'</td>'); //12
                 for (var k = 2; k <= 2; k++){
                     table.splice((parseInt(auxIndex) + parseInt(k)), 0,'<td>'+ sprintTime +'</td>'); //13
-                    table.splice((parseInt(auxIndex) + parseInt(k+1)), 0,'<td>'+ sprintDistance +'</td>'); //14
-                    table.splice((parseInt(auxIndex) + parseInt(k+2)), 0,'<td>'+ sprintVelocity +'</td>'); //15
-                    table.splice((parseInt(auxIndex) + parseInt(k+3)), 0,'<td>'+ pace +'</td>'); //16
+                    table.splice((parseInt(auxIndex) + parseInt(k+1)), 0,'<td>'+ timeAcum[sprint-1] +'</td>'); //14
+                    table.splice((parseInt(auxIndex) + parseInt(k+2)), 0,'<td>'+ sprintDistance +'</td>'); //15
+                    table.splice((parseInt(auxIndex) + parseInt(k+3)), 0,'<td>'+ sprintVelocity +'</td>'); //16
+                    table.splice((parseInt(auxIndex) + parseInt(k+4)), 0,'<td>'+ pace +'</td>'); //17
                 }
             }
-            table.splice((parseInt(auxIndex) + parseInt(6)), 0, '</tr>'); //17
+            table.splice((parseInt(auxIndex) + parseInt(7)), 0, '</tr>'); //18
         }
 
-        auxIndex = (parseInt(auxIndex) + parseInt(6));
+        auxIndex = (parseInt(auxIndex) + parseInt(7));
 
         // adicionando tfoot
-        table.splice((parseInt(auxIndex) + parseInt(5)), 0,'<td>'+ timeTotal +'</td>'); //22
-        table.splice((parseInt(auxIndex) + parseInt(6)), 0,'<td>'+ sumDistance +'</td>'); //23
+        table.splice((parseInt(auxIndex) + parseInt(6)), 0,'<td>'+ timeTotal +'</td>'); //23
         table.splice((parseInt(auxIndex) + parseInt(7)), 0,'<td> - </td>'); //24
-        table.splice((parseInt(auxIndex) + parseInt(8)), 0,'<td> - </td>'); //25
-        table.splice((parseInt(auxIndex) + parseInt(9)), 0,'</tr>'); //26
-        table.splice((parseInt(auxIndex) + parseInt(10)), 0,'</tfoot>'); //27
-        table.splice((parseInt(auxIndex) + parseInt(11)), 0,'</table>'); //28
+        table.splice((parseInt(auxIndex) + parseInt(8)), 0,'<td>' + sumDistance + '</td>'); //25
+        table.splice((parseInt(auxIndex) + parseInt(9)), 0,'<td> - </td>'); //26
+        table.splice((parseInt(auxIndex) + parseInt(10)), 0,'<td> - </td>'); //27
+        table.splice((parseInt(auxIndex) + parseInt(11)), 0,'</tr>'); //28
+        table.splice((parseInt(auxIndex) + parseInt(12)), 0,'</tfoot>'); //29
+        table.splice((parseInt(auxIndex) + parseInt(13)), 0,'</table>'); //30
 
         auxIndex++;;
 

@@ -16,12 +16,22 @@ function deleteRun() {
 
     localStorage.setItem('valueIndex', null);
 
-    localStorage.setItem('valueLap', 1);
+    localStorage.setItem('valueSprint', 1);
+
+    localStorage.setItem('valueControlRemove', "false");
+
+    localStorage.setItem('valueSumDistance', 0);
 
     var container = document.getElementById("tableSimuleRun");
     container.innerHTML = "";
 
-    document.getElementById("btDeleteSprint").style.visibility = "hidden"; //sumir id escolhido do html
+    // document.getElementById("btDeleteRun").style.visibility = "hidden"; //sumir id escolhido do html
+    // document.getElementById("btRemoveSprint").style.visibility = "hidden"; //sumir id escolhido do html
+
+    var btDeleteRun = document.getElementById("btDeleteRun");
+    var btRemoveSprint = document.getElementById("btRemoveSprint");
+    btDeleteRun.disabled = true;
+    btRemoveSprint.disabled = true;
 
     event.preventDefault();
 

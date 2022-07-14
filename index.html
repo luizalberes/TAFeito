@@ -20,8 +20,10 @@
         <script src="js/getSelectMedVelocity.js"></script>
         <script src="js/simuleRun.js"></script>
         <script src="js/deleteRun.js"></script>
+        <script src="js/removeSprint.js"></script>
         <script src="js/controlRadio.js"></script>
         <script src="js/transformTime.js"></script>
+        <script src="js/transformArray.js"></script>
 
     </head>
     <body onload="convertPaceToKm(), getSelectPaceToKm(), simuleTest(), calcLap(), calcMedVelocity(), deleteRun(), controlRadio(0)"> <!-- w3c school -->
@@ -88,13 +90,11 @@
                     </div>
                     <div>
                         <input type="button" id="btAddSprint" value="Adicionar Sprint" onclick="simuleRun()"><br><br>
+                        <input type="button" id="btRemoveSprint" onclick="removeSprint()" value="Remover Sprint">
+                        <input type="button" id="btDeleteRun" onclick="deleteRun()" value="Resetar"><br><br>
                     </div>
                     <div id="tableSimuleRun">
                         <!-- a tabela será gerada aqui -->
-                    </div>
-                    <div>
-                        <br>    
-                        <input type="button" id="btDeleteSprint" onclick="deleteRun()" value="Resetar" ><br><br>
                     </div>
                 </div>
                 <h2 id="titleConvertPaceToKm"> 

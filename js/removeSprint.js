@@ -28,10 +28,6 @@ function removeSprint() {
 
     table = transformArray(table);
 
-    console.log("distanceTotal no remove começo");
-        
-    console.log(distanceTotal);
-
 
 
     if (sprint > 2){
@@ -77,11 +73,6 @@ function removeSprint() {
         localStorage.setItem('valueControlRemove', "true");
 
         localStorage.setItem('valueDistanceTotal', distanceTotal);
-
-        console.log("timeAcum no remove fim");
-        
-        console.log(timeAcum);
-
   
     } else {
         deleteRun();

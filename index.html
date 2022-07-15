@@ -24,6 +24,7 @@
         <script src="js/controlRadio.js"></script>
         <script src="js/transformTime.js"></script>
         <script src="js/transformArray.js"></script>
+        <script src="js/setSprintVelocity.js"></script>
 
     </head>
     <body onload="convertPaceToKm(), getSelectPaceToKm(), simuleTest(), calcLap(), calcMedVelocity(), deleteRun(), controlRadio(0)"> <!-- w3c school -->
@@ -76,15 +77,16 @@
                         <label for="runTime">Tempo da Prova</label>
                         <input id="runTime" type="time" min="1" max="60" value="12:00"><br>
                         <label for="runDistance">Distância</label>
-                        <input id="runDistance" value="2400" type="number" min="1" max="2400"><br> 
+                        <input id="runDistance" value="2400" type="number" min="1" max="2400"><br>
                         <!-- <label for="runLaps">Voltas</label>
                         <input id="runLaps" type="number" value="6" min="1" max="6">           -->
                         <br><br><br><br>
                         
                         <label for="sprintTime">Tempo do Sprint</label>
-                        <input id="sprintTime" type="time" min="1" max="60" value="02:00"><br>
+                        <input id="sprintTime" type="time" min="1" max="60" value="02:00" onchange="setSprintVelocity()"><br>
                         <label for="sprintDistance">Distância</label>
-                        <input id="sprintDistance" value="400" type="number" min="1" max="2400"><br> 
+                        <input id="sprintDistance" value="400" type="number" min="1" max="2400" onchange="setSprintVelocity()"><br>
+                        <p id="sprintVelocity" >Velocidade de 12.00km/h</p> 
                         
                         <br><br>
                     </div>

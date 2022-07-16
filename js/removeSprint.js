@@ -18,6 +18,8 @@ function removeSprint() {
 
     var distanceTotal = localStorage.getItem('valueDistanceTotal'); 
 
+    var speeds = localStorage.getItem('valueSpeeds');
+
     distanceTotal = transformArray(distanceTotal);
 
     distanceTotal.pop();
@@ -26,9 +28,13 @@ function removeSprint() {
 
     timeAcum.pop();
 
+    speeds = transformArray(speeds);
+
+    speeds.pop();
+
+    var average = calcAverageArray(speeds);
+
     table = transformArray(table);
-
-
 
     if (sprint > 2){
         // remove somente o último sprint
@@ -49,8 +55,8 @@ function removeSprint() {
         table.splice((parseInt(auxIndex) + parseInt(9)), 0,'<td>'+ "Total" +'</td>'); 
         table.splice((parseInt(auxIndex) + parseInt(10)), 0,'<td>'+ timeAcum[timeAcum.length - 1] +'</td>'); 
         table.splice((parseInt(auxIndex) + parseInt(11)), 0,'<td> - </td>'); 
-        table.splice((parseInt(auxIndex) + parseInt(12)), 0,'<td>' + distanceTotal[distanceTotal.length-1] + '</td>'); 
-        table.splice((parseInt(auxIndex) + parseInt(13)), 0,'<td> - </td>');
+        table.splice((parseInt(auxIndex) + parseInt(12)), 0,'<td>' + distanceTotal[distanceTotal.length - 1] + '</td>'); 
+        table.splice((parseInt(auxIndex) + parseInt(13)), 0,'<td>' + average + 'km/h '+ '</td>');
         table.splice((parseInt(auxIndex) + parseInt(14)), 0,'<td> - </td>'); 
         table.splice((parseInt(auxIndex) + parseInt(15)), 0,'</tr>'); 
         table.splice((parseInt(auxIndex) + parseInt(16)), 0,'</tfoot>'); 
@@ -60,7 +66,7 @@ function removeSprint() {
 
         localStorage.setItem('valueSprint', (sprint-1));
 
-        
+        localStorage.setItem('valueSpeeds', speeds);        
 
         localStorage.setItem('valueTimeAcum', timeAcum);
 

@@ -54,11 +54,12 @@ function calcMedVelocity() {
         paceTemp = (1 / velocity) * 60;     
         minutePace = Math.trunc(paceTemp);
         secondPace = (paceTemp - minutePace) * 60;
-
+        
         var auxTransformTime = transformTime(secondPace, minutePace);
         
-        minutePace = auxTransformTime[0];
-        secondPace = auxTransformTime[1];
+        secondPace = auxTransformTime[0];
+        minutePace = auxTransformTime[1];
+        
 
         document.getElementById('convertMedVelocity').innerHTML = "Velocidade de "+ auxvelocity + "km/h ou Pace de "+ minutePace + ":" + secondPace + " por km";
     } else if (valueSelectMedVelocity == "distance"){

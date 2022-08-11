@@ -181,8 +181,11 @@ function simuleRun() {
         distanceTotal.push(sumDistance);
         localStorage.setItem('valueDistanceTotal', distanceTotal);
         speeds.push(sprintVelocity);
-        var average = calcAverageArray(speeds);
+        // var average = calcAverageArray(speeds);
+        var average = ((sumDistance/sumTime)*3.6).toFixed(2);
         localStorage.setItem('valueSpeeds', speeds);
+
+        console.log(distanceTotal)
 
         for (var i = 0; i < 1; i++){
             table.splice((parseInt(auxIndex) + parseInt(i+1)), 0, '<tr>'); //12
@@ -250,10 +253,6 @@ function simuleRun() {
 
         //atualizar valor distância
         sumDistance = totalDistances;
-
-        distanceTotal.push(sumDistance);
-
-        localStorage.setItem("valueDistanceTotal",distanceTotal);
 
         document.getElementById("sprintTime").value = minuteRest + ":" + secondRest;
         document.getElementById("sprintDistance").value = restDistance;

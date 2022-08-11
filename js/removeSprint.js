@@ -20,20 +20,20 @@ function removeSprint() {
 
     var speeds = localStorage.getItem('valueSpeeds');
 
-    distanceTotal = transformArray(distanceTotal);
+    var sumTime = localStorage.getItem('valueAuxSumTime');
+
+    distanceTotal = transformArray(distanceTotal); //Distância Total
 
     distanceTotal.pop();
 
-    timeAcum = transformArray(timeAcum);
+    timeAcum = transformArray(timeAcum); //Tempo Acumulado
 
     timeAcum.pop();
 
-    speeds = transformArray(speeds);
+    speeds = transformArray(speeds); //Velocidades
 
     speeds.pop();
-
-    var average = calcAverageArray(speeds);
-
+    
     table = transformArray(table);
 
     if (sprint > 2){
@@ -46,6 +46,8 @@ function removeSprint() {
         localStorage.setItem('valueAuxSumTime', totalTime);
 
         localStorage.setItem('valueAuxSumDistance', distanceTotal[distanceTotal.length-1]);
+
+        var average = ((distanceTotal[distanceTotal.length-1]/totalTime)*3.6).toFixed(2);
 
         table.splice((table.length-20),table.length);
 
